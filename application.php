@@ -11,11 +11,11 @@ $input = new ArgvInput(
     [
         basename(__FILE__),
         'post-message',
-        $_SERVER['git_branch'],
-        $_SERVER['jira_user'],
-        $_SERVER['jira_password'],
-        $_SERVER['jira_build_message'],
-        $_SERVER['jira_url'],
+        isset($_SERVER['git_branch']) ? $_SERVER['git_branch'] : null,
+        isset($_SERVER['jira_user']) ? $_SERVER['jira_user'] : null,
+        isset($_SERVER['jira_password']) ? $_SERVER['jira_password'] : null,
+        isset($_SERVER['jira_build_message']) ? $_SERVER['jira_build_message'] : null,
+        isset($_SERVER['jira_url']) ? $_SERVER['jira_url'] : null,
     ]
 );
 
