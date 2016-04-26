@@ -6,6 +6,7 @@ use Exception;
 use Jira_Api;
 use Jira_Api_Authentication_Basic;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -44,6 +45,15 @@ final class PostMessageCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $table = new Table($output);
+        $table->setHeaders(['variable', 'value']);
+        $table->addRow(['git-branch', $input->getArgument('git-branch')]);
+        $table->addRow(['jira-url', $input->getArgument('jira-url')]);
+        $table->addRow(['jira-user', $input->getArgument('jira-user')]);
+        $table->addRow(['jira-build-message', $input->getArgument('jira-build-message')]);
+
+        $table->render();
+
         $api = new Jira_Api(
             $input->getArgument('jira-url'),
             new Jira_Api_Authentication_Basic(
@@ -53,9 +63,8 @@ final class PostMessageCommand extends Command
         );
 
         $issueKeyResolver = new IssueKeyResolver();
-        $issueKey = $issueKeyResolver->resolveKeyFromBranchName(
-            $input->getArgument('git-branch')
-        );
+        $issueKey = $issueKeyResolver->resolveKeyFromBranchName($input->getArgument('git-branch'));
+        $output->writeln(sprintf('The issue key is "%s"', $issueKey));
 
         $message = $input->getArgument('jira-build-message');
         if (!$api->addComment($issueKey, $message)) {
