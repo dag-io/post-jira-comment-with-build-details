@@ -4,8 +4,7 @@
     "src"
   ],
   "files": [
-    "application.php",
-    "LICENSE"
+    "LICENCE"
   ],
   "finder": [
     {
@@ -17,7 +16,7 @@
     }
   ],
   "git-version": "package_version",
-  "main": "bin/cliph",
-  "output": "cliph.phar",
+  "main": "application.php",
+  "output": "bin/post-jira-comment-with-build-details.phar",
   "stub": true
 }
