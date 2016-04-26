@@ -36,7 +36,7 @@ final class PostMessageCommand extends Command
                 InputArgument::REQUIRED
             )
             ->addArgument(
-                'jira-endpoint',
+                'jira-url',
                 InputArgument::REQUIRED
             );
     }
@@ -44,7 +44,7 @@ final class PostMessageCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $api = new Jira_Api(
-            $input->getArgument('jira-endpoint'),
+            $input->getArgument('jira-url'),
             new Jira_Api_Authentication_Basic(
                 $input->getArgument('jira-user'),
                 $input->getArgument('jira-password')

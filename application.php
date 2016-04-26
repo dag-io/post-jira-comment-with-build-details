@@ -15,7 +15,7 @@ $input = new ArgvInput(
         $_SERVER['jira_user'],
         $_SERVER['jira_password'],
         $_SERVER['jira_build_message'],
-        $_SERVER['jira_domain'],
+        $_SERVER['jira_url'],
     ]
 );
 
