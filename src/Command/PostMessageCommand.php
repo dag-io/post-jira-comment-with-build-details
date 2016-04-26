@@ -2,6 +2,7 @@
 namespace DAG\JIRA\Post\Command;
 
 use DAG\JIRA\Post\IssueKeyResolver;
+use Exception;
 use Jira_Api;
 use Jira_Api_Authentication_Basic;
 use Symfony\Component\Console\Command\Command;
@@ -56,6 +57,9 @@ final class PostMessageCommand extends Command
             $input->getArgument('git-branch')
         );
 
-        $api->addComment($issueKey, $input->getArgument('jira-build-message'));
+        $message = $input->getArgument('jira-build-message');
+        if (!$api->addComment($issueKey, $message)) {
+            throw new Exception("Comment post failed");
+        }
     }
 }
