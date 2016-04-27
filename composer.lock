@@ -4,56 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0ef5bce395342259b14910d441ad270b",
-    "content-hash": "f1dbf0f1bb21389af9c28cc67a705a19",
+    "hash": "266e9cce85ba651f164a32e163abf647",
+    "content-hash": "504bfb12176efe4002e808878b726204",
     "packages": [
-        {
-            "name": "chobie/jira-api-restclient",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/chobie/jira-api-restclient.git",
-                "reference": "68c082d2bbcab5e9ba97e8b46496b3b1afceed6f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/chobie/jira-api-restclient/zipball/68c082d2bbcab5e9ba97e8b46496b3b1afceed6f",
-                "reference": "68c082d2bbcab5e9ba97e8b46496b3b1afceed6f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Jira_": "./"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Shuhei Tanuma",
-                    "email": "chobieeee@php.net",
-                    "homepage": "http://blog.stfalcon.com"
-                }
-            ],
-            "description": "JIRA REST API.",
-            "keywords": [
-                "api",
-                "jira",
-                "rest"
-            ],
-            "time": "2014-07-27 11:40:44"
-        },
         {
             "name": "symfony/console",
             "version": "v3.0.4",
