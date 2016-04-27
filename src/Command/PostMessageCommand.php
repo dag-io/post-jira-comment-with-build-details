@@ -67,5 +67,13 @@ final class PostMessageCommand extends Command
 
         $message = $input->getArgument('jira-build-message');
         $client->postComment($issueKey, $message);
+
+        // Set environment variable
+        $out = $returnValue = null;
+        exec('envman add --key JIRA_ISSUE_KEY --value "'.$issueKey.'"', $out, $returnValue);
+
+        if ($returnValue != 0) {
+            throw new \Exception("Can not export environment variable");
+        }
     }
 }
