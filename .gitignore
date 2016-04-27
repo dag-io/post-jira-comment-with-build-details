@@ -2,3 +2,8 @@
 /vendor
 /box.phar
 /step.*
+
+# Bitrise
+bitrise.yml
+.bitrise.secrets.yml
+.bitrise.secrets.yml.dist
