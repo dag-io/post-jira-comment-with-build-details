@@ -22,6 +22,8 @@ final class IssueKeyResolver
             return $groups[2];
         } else if (preg_match('@^([\w]+\-[\w]+)\-.*@', $branchName, $groups)) {
             return $groups[1];
+        } else if (preg_match('@^(release)/[\w\-\.]+/([\w]+\-[\w]+)\-.*@', $branchName, $groups)) {
+            return $groups[2];
         }
 
         throw new InvalidArgumentException(
